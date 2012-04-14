@@ -9,7 +9,7 @@ end
 
 def another_term(chapter, term)
 	$content[chapter] = $content[chapter] + "\n #{term}"
-	File.open("content/#{chapter}.txt", "w") { |f| f.write($content[chapter]) }
+	#File.open("content/#{chapter}.txt", "w") { |f| f.write($content[chapter]) }
 end
 
 get '/' do
