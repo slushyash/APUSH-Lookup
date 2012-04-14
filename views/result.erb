@@ -19,23 +19,23 @@
 Term: <input type="text" name="term" />
 <input type="submit" value="Submit" />
 </form>
-<br />
-<br />
-Chapters:
+
+<h2>Term: <%=@term%></h2>
+<h1>Chapters:</h1>
 <ul>
 <% @chapters_having_term.each do |number|  %>
 	<li><%=number.to_s%></li>
 <% end %>
 </ul>
+
+If you found the chapter that has this term, could you please add it to the index?
+<form name="addterm" action="/addterm" method="post">
+Chapter: <input type="text" name="chapter" />
+<input type="hidden" name="term" value="<%=@term%>" />
+<input type="submit" value="Submit" />
+</form>
 </div>
 <footer>
-<iframe width="230" 
-  height="165"
-  frameborder="0"
-  scrolling="no"       
-  src="http://iheartquotes.com/api/v1/random?format=html&max_lines=4&max_characters=320&width=225&height=165">
-<a href="http://iheartquotes.com/fortune/random">Random Quote</a>
-</iframe> 
 </footer>
 </body>
 </html>
