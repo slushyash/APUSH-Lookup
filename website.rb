@@ -18,10 +18,6 @@ configure do
 	REDIS = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
 end
 
-def another_term(chapter, term)
-	REDIS.rpush term, chapter
-end
-
 get '/' do
 	erb :index
 end
@@ -42,6 +38,6 @@ post '/' do
 end
 
 post '/addterm/?' do
-	another_term(params[:chapter].to_i, params[:term])
+	REDIS.rpush params[:chapter].to_i, params[:term]
 	redirect '/'
 end
