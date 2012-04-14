@@ -19,9 +19,16 @@
 Term: <input type="text" name="term" />
 <input type="submit" value="Submit" />
 </form>
+<br />
+<br />
+Chapters:
+<ul>
+<% @chapters_having_term.each do |number|  %>
+	<li><%=number.to_s%></li>
+<% end %>
+</ul>
 </div>
 <footer>
-
 </footer>
 </body>
 </html>
